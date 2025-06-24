@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crud-app-deployment
+  labels:
+    app: crud-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: crud-app
+  template:
+    metadata:
+      labels:
+        app: crud-app
+    spec:
+      containers:
+      - name: crud-app
+        image: karimanmahmoud/crud-web-app
+        ports:
+        - containerPort: 80
